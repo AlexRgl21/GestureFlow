@@ -2,13 +2,13 @@ const CACHE_NAME = 'gesturecontrol-vFinal';
 
 // Lista de archivos vitales. Si falta uno aquí, la app no funciona offline.
 const STATIC_FILES = [
-  './',
-  './index.html',
-  './style.css',
-  './app_module.js',
-  './classify.js',
-  './logger.js',
-  './manifest.json'
+  "./",
+  "./index.html",
+  "../css/style.css",
+  "../js/app_module.js",
+  "../js/classify.js",
+  "../js/logger.js",
+  "./manifest.json"
 ];
 
 // EVENTO INSTALL: Se dispara la primera vez que entras
