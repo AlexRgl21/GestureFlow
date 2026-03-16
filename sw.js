@@ -4,11 +4,11 @@ const CACHE_NAME = 'gesturecontrol-vFinal';
 const STATIC_FILES = [
   "./",
   "./index.html",
-  "../css/style.css",
-  "../js/app_module.js",
-  "../js/classify.js",
-  "../js/logger.js",
-  "./manifest.json"
+  "./manifest.json",
+  "src/css/style.css",
+  "src/js/app_module.js",
+  "src/js/classify.js",
+  "src/js/logger.js"
 ];
 
 // EVENTO INSTALL: Se dispara la primera vez que entras
