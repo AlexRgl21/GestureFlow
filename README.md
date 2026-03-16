@@ -54,6 +54,13 @@ Esto permite adaptar los gestos para controlar diferentes funciones del reproduc
 - MediaPipe
 - TensorFlow.js
 
+## Demo
+
+![Interfaz](assets/screenshots/interfaz-desarrollada.png)
+
+## Video demo
+assets/video/gestureflow-demo.mp4
+
 ## Licencia
 
 Este proyecto está bajo la licencia MIT.
