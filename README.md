@@ -59,7 +59,7 @@ Esto permite adaptar los gestos para controlar diferentes funciones del reproduc
 ![Interfaz desarrollada](assets/screenshots/interfaz%20desarrollada.png)
 
 ## Video demo
-[Ver video demo](assets/video/gestureflow-demo.mp4)
+[Ver video demo](assets/video/gestureflow-demo.mp4.mp4)
 
 ## Licencia
 
