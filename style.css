@@ -1,0 +1,149 @@
+/* =========================================
+   VARIABLES (Paleta de colores fácil de cambiar)
+========================================= */
+:root {
+  --bg: #0f1724;      /* Fondo oscuro azulado */
+  --card: #111827;    /* Color de tarjetas */
+  --accent: #06b6d4;  /* Azul cian brillante */
+  --text: #e6eef6;    /* Texto blanco suave */
+}
+
+/* Reset básico: el padding no aumenta el tamaño total */
+* { box-sizing: border-box; }
+
+body {
+  font-family: Inter, system-ui, Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg, #071024, #071428);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+/* Grid Layout: Divide la pantalla en 2 columnas (Video | Panel) */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* 1 parte flexible, 360px fijos */
+  gap: 16px;
+}
+
+/* En móviles, cambia a 1 sola columna vertical */
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================
+   VIDEO WRAPPER (EL TRUCO DE LA SUPERPOSICIÓN)
+========================================= */
+.video-wrap {
+  position: relative; /* Define el límite para los hijos absolutos */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;   /* Corta lo que sobresalga */
+  min-height: 300px; 
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* EFECTO ESPEJO: Voltea el video horizontalmente para que se sienta natural */
+  transform: scaleX(-1); 
+}
+
+canvas {
+  /* POSICIONAMIENTO ABSOLUTO: Flota ENCIMA del video */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permite hacer clic "a través" del canvas */
+  
+  /* También volteamos el dibujo para que coincida con el video espejo */
+  transform: scaleX(-1); 
+}
+
+/* =========================================
+   ESTILOS DE UI (Botones, Logs, Toast)
+========================================= */
+.panel {
+  background: rgba(255, 255, 255, 0.03); /* Transparencia sutil */
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.controls button {
+  background: var(--accent);
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logArea {
+  height: 200px;
+  overflow-y: auto; /* Scroll si hay mucho texto */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Notificación verde flotante */
+.toast {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Centrar horizontalmente perfectamente */
+  bottom: 20px;
+  background: rgba(0, 255, 0, 0.8);
+  color: #000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: none; /* Oculto por defecto */
+  z-index: 10;
+}
+
+/* =========================================
+   REPRODUCTOR MULTIMEDIA
+========================================= */
+.player-card {
+  background: #1e293b;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.track-info h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.track-info p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #06b6d4;
+  font-family: monospace;
+}
+
+.control-hint {
+  background: rgba(6, 182, 212, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
