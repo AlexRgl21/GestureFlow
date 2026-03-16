@@ -61,6 +61,12 @@ Esto permite adaptar los gestos para controlar diferentes funciones del reproduc
 ## Video demo
 [Ver video demo](assets/video/gestureflow-demo.mp4.mp4)
 
+## Live Demo
+
+Puedes probar GestureFlow directamente desde el navegador:
+
+https://alexrgl21.github.io/GestureFlow/
+
 ## Licencia
 
 Este proyecto está bajo la licencia MIT.
