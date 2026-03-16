@@ -9,15 +9,15 @@ y ejecutar acciones dentro de un reproductor multimedia integrado.
 ## Funcionalidades
 
 - Detección de gestos en tiempo real
-- Control del reproductor de video
+- Control del reproductor multimedia
 - Interfaz web simple
 - Uso de cámara web
 
 ## Gestos soportados
 
-✊ Puño → Play / Pause  
-✋ Mano abierta → Siguiente  
-👉 Apuntar → Anterior  
+Puño → Play / Pause  
+Mano abierta → Siguiente  
+Apuntar → Anterior  
 
 ## Requisitos
 
