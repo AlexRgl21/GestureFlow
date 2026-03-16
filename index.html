@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GestureControl — Proyecto Comentado</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4/hands.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection"></script>
+
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+
+  <div class="container">
+    
+    <header>
+      <h1>GestureFlow Project</h1>
+    </header>
+
+    <div class="grid">
+      
+      <main>
+        <div class="video-wrap">
+          <video id="video" autoplay playsinline muted></video>
+          
+          <canvas id="output"></canvas>
+          
+          <div id="actionToast" class="toast">Acción detectada</div>
+        </div>
+
+        <div class="statusbar" id="statusLine">
+          Esperando inicio...
+        </div>
+
+        <div class="player-card">
+  <div class="track-info">
+    <h3 id="trackTitle">Canción Demo 1</h3>
+    <p>Música libre de derechos</p>
+  </div>
+  
+  <audio id="audioPlayer" controls style="width: 100%; margin-top: 10px;">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+  </audio>
+
+</div>
+      </main>
+
+      <aside class="panel">
+        <h3>Configuración</h3>
+
+        <h3>Mapeo de Gestos</h3>
+
+<div class="map-row">
+  <label>Cuando haga Puño ✊:</label>
+  <select id="action_fist" style="width:100%; padding:6px; background:#222; color:#fff; border:1px solid #444; border-radius:4px;">
+    <option value="PLAY_PAUSE" selected>Play / Pause</option>
+    <option value="NEXT">Siguiente canción</option>
+    <option value="PREV">Anterior canción</option>
+    <option value="NONE">Ninguna acción</option>
+  </select>
+</div>
+
+<div class="map-row">
+  <label>Cuando haga Mano Abierta ✋:</label>
+  <select id="action_open" style="width:100%; padding:6px; background:#222; color:#fff; border:1px solid #444; border-radius:4px;">
+    <option value="PLAY_PAUSE">Play / Pause</option>
+    <option value="NEXT" selected>Siguiente canción</option>
+    <option value="PREV">Anterior canción</option>
+    <option value="NONE">Ninguna acción</option>
+  </select>
+</div>
+
+<div class="map-row">
+  <label>Cuando haga Apuntar 👉:</label>
+  <select id="action_point" style="width:100%; padding:6px; background:#222; color:#fff; border:1px solid #444; border-radius:4px;">
+    <option value="PLAY_PAUSE">Play / Pause</option>
+    <option value="NEXT">Siguiente canción</option>
+    <option value="PREV" selected>Anterior canción</option>
+    <option value="NONE">Ninguna acción</option>
+  </select>
+</div>
+
+<hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+        
+        <!--div class="map-row">
+          <label>Ventana de suavizado</label>
+          <input type="number" value="7" readonly style="width:100%; padding:5px;">
+        </div-->
+
+        <div class="controls">
+          <button id="startBtn">Iniciar Cámara</button>
+          <button id="stopBtn" style="background:#e63946; color:white;">Detener</button>
+          <button id="exportBtn" style="background:#2a9d8f; color:white;">Guardar Logs</button>
+        </div>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+
+        <h3>Historial en vivo</h3>
+        <div id="logPreview" class="logArea">
+          <div style="color:#666; font-size:12px;">Los gestos aparecerán aquí...</div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <script type="module" src="app_module.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registrado', reg.scope))
+          .catch(err => console.log('SW falló', err));
+      });
+    }
+  </script>
+
+</body>
+</html>
